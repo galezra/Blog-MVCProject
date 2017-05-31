@@ -1,2 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Shauli_Blog.Post">
+    <Position X="14.25" Y="2.25" Width="2" />
+    <AssociationLine Name="Comments" Type="Shauli_Blog.Models.Comment">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.11" Y="0.06" Height="0.182" Width="1.558" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEEAiAAAAAAAAAAAABAACAAAAAAAIAg=</HashCode>
+      <FileName>Models\Post.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Comments" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Shauli_Blog.Models.Comment">
+    <Position X="11" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEEAgAAAAAAACAAAAAAgCAAAAAAAAAA=</HashCode>
+      <FileName>Models\Comment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shauli_Blog.Models.Fan">
+    <Position X="8.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIgAAAAAABAAAAIAAAAEAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Fan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

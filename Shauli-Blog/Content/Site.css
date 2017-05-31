@@ -1,24 +1,362 @@
-﻿body {
-    padding-top: 50px;
+﻿/*------------------------------
+=BASIC SETUP
+------------------------------*/
+
+/* Makeshift CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: penna;
+    font-style: normal;
+    src: url(../fonts/penna.otf);
+}
+
+@font-face {
+    font-family: font;
+    src: url(../fonts/font.otf);
+}
+
+@font-face {
+    font-family: linotte;
+    src: url(../fonts/linotte.otf);
+}
+
+
+/* Tell the browser to render HTML 5 elements as block */
+/* ReSharper disable once Html.TagNotResolved */
+header, footer, section, aside, nav, article {
+    display: block;
+}
+
+
+body {
+    font-family: linotte;
+    margin: 0 auto;
+    padding: 22px 0;
+    width: 940px;
+    background: #F0F0F0;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 28px;
+    line-height: 44px;
+    padding: 22px 0;
+    color: black;
+    text-shadow: 3px 3px #DDDDDD;
+}
+
+h2 {
+    font-family: penna;
+    font-size: 45px;
+    line-height: 44px;
+    padding: 22px 0;
+    margin-bottom: 10px;
+    color: black;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 11px 0;
+}
+
+h4 {
+    font: small-caps bold 18px Lucida Sans Unicode, sans-serif;
+    line-height: 22px;
+    padding: 11px 0;
+}
+
+h5 {
+    font-family: penna;
+    font-size: 40px;
+    padding: 0;
+    margin-bottom: 20px;
+    color: black;
+}
+
+h6 {
+    font-family: penna;
+    font-size: 70px;
+    padding: 0;
+    margin-bottom: 20px;
+    color: black;
+    text-align: center;
+}
+
+h7 {
+    font-family: font;
+    font-size: 30px;
+    filter: blur(1px);
+    text-shadow: 1px 1px 10px #DDDDDD;
+    line-height: 60px;
+    padding: 22px 0;
+    margin-bottom: 110px;
+    color: white;
+}
+
+h8 {
+    font-family: penna;
+    font-size: 20px;
+    margin-right: 10px;
+    color: black;
+    text-align: right;
+}
+
+h9 {
+    font-family: penna;
+    font-size: 20px;
+    margin-right: 1px;
+    color: black;
+    text-align: right;
+}
+
+p {
+    padding-bottom: 22px;
+}
+
+/*------------------------------
+=NAVIGATION
+------------------------------*/
+nav {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to left, #67714f, #afa665, #f6c986, #fdab71, #f5763f, #c43b1b, #a1230c);
+    border-top-style: groove;
+    border-bottom-style: groove;
+}
+
+nav ul {
+    margin: 0 auto;
+    width: 940px;
+    list-style: none;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    margin-right: 20px;
+    width: 140px;
+    font-size: 14px;
+    line-height: 44px;
+    text-align: center;
+    text-decoration: none;
+    color: #777;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+nav ul li.selected a {
+    color: #fff;
+}
+
+#transDemo2 div {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    transition: all 1s ease-in-out;
+}
+
+#transDemo2 div:hover {
+    transform: rotate(720deg) scale(1.5,1.5);
+}
+
+
+
+/*------------------------------
+=INTRODUCTION
+------------------------------*/
+#intro {
+    position: relative;
+    margin-top: 80px;
+    padding: 35px;
+    background: repeating-linear-gradient(to right, #0e1406, #0e1406, #597c15, #f6c986,#f6c986 100%, #f6c986 100%);
+    background-size: 100%;
+    /* Border-radius not implemented yet */
+    border-radius: 25px;
+}
+
+#intro h2, #intro p {
+    position: relative;
+    z-index: 9999;
+    width: 436px;
+}
+
+#intro h2 {
+    padding: 0 0 22px 0;
+    font-weight: normal;
+    color: #fff;
+}
+
+#intro p {
+    padding: 0;
+    color: #d9f499;
+}
+
+#intro img {
+    position: absolute;
+    opacity: 0.89;
+    filter: blur(0.6px);
+    box-sizing: border-box;
+    box-shadow: 0px 0px 40px 20px #dddddd;
+    border-top-right-radius: 55px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 200px;
+    border-top-left-radius: 200px;
+    width: 440px;
+    height: 100%;
+    top: 0.2%;
+    right: 0.01%;
+    /* Border-radius not implemented yet */
+}
+
+/*------------------------------
+=CONTENT AREA AND SIDEBAR LAYOUT
+------------------------------*/
+#content {
+    display: table;
+    /*margin: 0 0 100px 22px;*/
+}
+
+#mainContent {
+    display: table-cell;
+    width: 620px;
+    padding-right: 22px;
+}
+
+aside {
+    display: table-cell;
+    width: 300px;
+    background: url("~/images/sidebar_background.png") top left;
+    box-shadow: -5px 3px 7px -7px #777;
+}
+
+/*------------------------------
+=SIDEBAR
+------------------------------*/
+aside section {
+    margin: 22px 22px 22px 22px;
+    padding: 11px 22px 3px;
+    /*background: url("images/sidebar_section_background.png") repeat-x;*/
+    background: linear-gradient(to bottom, #DFDFDF, #F9F9F9, #f0f0f0 );
+    border-radius: 11px;
+    box-shadow: 0px -1px 9px 0px #777;
+}
+
+aside section ul {
+    margin: 0 0 0 22px;
     padding-bottom: 20px;
+    list-style: none;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+aside section ul li a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font: 10px Lucida Sans Unicode, sans-serif;
+    padding-bottom: 5px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+aside section ul li a:hover {
+    text-decoration: underline;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+/*------------------------------
+=BLOG POST
+------------------------------*/
+.blogPost header p, .blogPost header p a {
+    font-size: 14px;
+    font-style: italic;
+    color: #777;
+}
+
+.blogPost header p a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.blogPost div {
+    /* Column-count not implemented yet */
+    column-count: 2;
+    /* Column-gap not implemented yet */
+    column-gap: 22px;
+    border-bottom-style: groove;
+}
+
+.blogPost img {
+    margin: 22px 0;
+    box-shadow: 3px 3px 7px #777;
+}
+
+.blogPost video {
+    margin: 12px 0;
+    width: 100%;
+    height: auto;
+    box-shadow: 3px 3px 7px #777;
+}
+
+
+
+/*------------------------------
+=FOOTER
+------------------------------*/
+
+footer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to left, #67714f, #afa665, #f6c986, #fdab71, #f5763f, #c43b1b, #a1230c);
+    border-top-style: groove;
+    border-bottom-style: groove;
+}
+
+footer div {
+    margin: 0 auto;
+    width: 940px;
+    list-style: none;
+}
+
+footer div section {
+    float: left;
+    margin-left: auto;
+    width: 250px;
+}
+
+footer div section ul li {
+    text-indent: 1px;
+}
+
+footer div section p {
+    font: normal small-caps 12px Lucida Sans Unicode, sans-serif;
+}
+
+footer div section ul li a {
+    font: normal small-caps 12px Lucida Sans Unicode, sans-serif;
+    color: black;
+}
+
+
+
+
+#about {
+    list-style: none;
+}
+
+#blogroll {
+    list-style: none;
+    margin-left: 70px;
+}
+
+#popular {
+    list-style: none;
+    margin-left: 50px;
 }
