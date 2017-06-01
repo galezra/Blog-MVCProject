@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using Shauli_Blog.Models;
 
-namespace Shauli_Blog
+
+namespace Shauli_Blog.Models
 {
     public class Post
     {
