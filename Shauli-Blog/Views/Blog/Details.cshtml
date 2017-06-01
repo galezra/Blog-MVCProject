@@ -1,0 +1,37 @@
+﻿
+
+@model Shauli_Blog.Models.Post
+
+@using System.Globalization
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div id="mainContent">
+<!-- IFormatProvider for post date -->
+@{CultureInfo dateFormatProvider = CultureInfo.CreateSpecificCulture("en-US");}
+    
+    <section>
+        <article class="blogPost">
+            <header>
+                <h2>@Model.Title</h2>
+                <p>
+                    Posted on <time datetime="@Model.PublishDate"> @Model.PublishDate.ToString("D", dateFormatProvider) </time> by
+                    <a href="@Model.Author">@Html.DisplayFor(modelpost => Model.Author)</a> -<a href="#comments"> @Model.Comments.Count</a> comments <!-- display count comments -->
+                </p>
+            </header>
+            <div id="contentText">
+                <p> @Model.Content </p>
+            </div>
+        </article>
+    </section>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+    </div>
+

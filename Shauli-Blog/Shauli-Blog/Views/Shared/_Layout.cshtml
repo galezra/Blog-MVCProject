@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Ask Shauli?</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+
+    <header>
+        <h6>Ha-Blog Shel Shauli</h6>
+        <center><h8>© Gal Ezra - 204037980 Sahar Mizrahi - 204614069 ©</h8></center>
+    </header>
+    <nav>
+        <!-- Navigation -->
+        <ul>
+            <li class="selected"><a>@Html.ActionLink("Blog", "Index", "Blog")</a></li>
+            <li><a href="#">About</a></li>
+            <li><a>@Html.ActionLink("Fan Club", "Index", "Fan")</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+                <div id="transDemo2">
+                    <div class="hover">
+                        <img alt="pic" src="http://www.ashlylorenzana.com/wp-content/uploads/2013/12/12065637851779660844SRD_RSS_Logo.svg_.hi_.png" width="25" height="24" style="margin-top: 10px;">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="intro">
+        <!-- Introduction -->
+
+        <header>
+            <h7>Do you have questions for me?</h7>
+        </header>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut.
+        </p>
+        <img src="~/images/intro_shauli.png" alt="Shauli" />
+    </section>
+
+
+    <div id="content">
+        <!-- Main Content -->
+        <div id="mainContent">
+            <section>
+                @RenderBody()
+            </section>
+        </div>
+        <aside>
+            <section>
+                <header>
+                    <h5>Categories</h5>
+                </header>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Sit amet consectetur</a></li>
+                    <li><a href="#">Adipisicing elit sed</a></li>
+                </ul>
+            </section>
+            <section>
+                <header>
+                    <h5>Archives</h5>
+                </header>
+                <ul>
+                    <li><a href="#">December 2008</a></li>
+                    <li><a href="#">January 2009</a></li>
+                    <li><a href="#">February 2009</a></li>
+                    <li><a href="#">March 2009</a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <footer>
+        <!-- Footer -->
+        <div>
+            <section id="about">
+                <header>
+                    <h4>About</h4>
+                </header>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                    do eiusmod tempor incididunt ut la
+                </p>
+            </section>
+            <section id="blogroll">
+                <header>
+                    <h4>Blogroll</h4>
+                </header>
+                <ul>
+                    <li><a href="#">NETTUTS+</a></li>
+                    <li><a href="#">FreelanceSwitch</a></li>
+                </ul>
+            </section>
+            <section id="popular">
+                <header>
+                    <h4>Popular</h4>
+                </header>
+                <ul>
+                    <li><a href="#">This is the title of a blog post</a></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li>
+                        <a href="#">
+                            Consectetur adipisicing elit, sed do
+                            eiusmod
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+
+
+    <div class="container body-content">
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
