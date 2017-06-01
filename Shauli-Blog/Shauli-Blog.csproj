@@ -166,7 +166,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\mystyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -224,16 +223,6 @@
     <Content Include="Views\Fan\Details.cshtml" />
     <Content Include="Views\Fan\Edit.cshtml" />
     <Content Include="Views\Fan\Index.cshtml" />
-    <Content Include="Views\Blog\_PostsList.cshtml" />
-    <Content Include="Views\Blog\_PostComment.cshtml" />
-    <Content Include="Views\Blog\Administration.cshtml" />
-    <Content Include="Views\Blog\Delete.cshtml" />
-    <Content Include="Views\Blog\Edit.cshtml" />
-    <Content Include="Views\Blog\Details.cshtml" />
-    <Content Include="Views\Blog\ManageComments.cshtml" />
-    <Content Include="Views\Blog\_CommentList.cshtml" />
-    <Content Include="Views\Blog\AddNewPost.cshtml" />
-    <Content Include="Views\Blog\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
