@@ -4,29 +4,41 @@
     using (Html.BeginForm("CreateComment","Blog",FormMethod.Post)) {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
+        <!-- Blog Comments -->
 
-      
-        <h3>Post a comment</h3>
-    
-        @Html.HiddenFor(model => model.PostId) <!-- Getting the PostId from Index.cshtml-->
-        <p>
-            @Html.LabelFor(model => model.Author, "Name")
-            @Html.TextBoxFor(model => model.Author, new { id = "writer", required = "required" })
-        </p>
-        <p>
-            @Html.LabelFor(model => model.Url, "Website")
-            @Html.TextBoxFor(model => model.Url, new { id = "writerWebSite", type = "url"})
-        </p>
-        <p>
-            @Html.LabelFor(model => model.Title)
-            @Html.TextBoxFor(model => model.Title, new { id = "title", required = "required" })
-        </p>
-        <p>
-            @Html.LabelFor(model => model.Content, "Comment")
-            @Html.TextAreaFor(model => model.Content, new { id = "comment", required = "required" })
-        </p>
-    
-        <p><input type="submit" value="Post comment" class="btn btn-primary" /></p>
+            <!-- Getting the PostId from Index.cshtml-->
+            @Html.HiddenFor(model => model.PostId)
+
+           
+           
+        <!-- Comments Form -->
+
+        <div class="well">
+            <h4>@Html.LabelFor(model => model.Content, "Leave a Comment:")</h4>
+            <comm>
+                <ul>
+                    <li>
+                        @Html.LabelFor(model => model.Title)
+                        @Html.TextBoxFor(model => model.Title, new {id = "title", required = "required"})
+                    </li>
+                    <li>
+                        @Html.LabelFor(model => model.Author, "Name")
+                        @Html.TextBoxFor(model => model.Author, new {id = "Author", required = "required"})
+                    </li>
+
+                    <li>
+                        @Html.LabelFor(model => model.Url, "Website")
+                        @Html.TextBoxFor(model => model.Url, new {id = "Url", type = "url"})
+                    </li>
+                </ul>
+            </comm>
+            <form role="form">
+                <div class="form-group">
+                    @Html.TextAreaFor(model => model.Content, new {id = "comment", required = "required", @Style = "height:150px; width:515px;"})
+                </div>
+                <input type="submit" value="Post comment" class="btn btn-primary"/>
+            </form>
+        </div>
 
         }
        

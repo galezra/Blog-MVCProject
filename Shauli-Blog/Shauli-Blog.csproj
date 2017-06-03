@@ -234,6 +234,7 @@
     <Content Include="Views\Blog\_CommentList.cshtml" />
     <Content Include="Views\Blog\AddNewPost.cshtml" />
     <Content Include="Views\Blog\Create.cshtml" />
+    <Content Include="Views\Blog\_Content.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

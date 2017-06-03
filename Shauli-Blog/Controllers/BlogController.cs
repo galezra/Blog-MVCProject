@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,9 +12,17 @@ namespace Shauli_Blog.Controllers
     public class BlogController : Controller
     {
         private BlogContex db = new BlogContex();
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Posts.ToList());
+            var posts = from s in db.Posts
+                select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                posts = posts.Where(s => s.Author.Contains(searchString)
+                                               || s.Content.Contains(searchString)); 
+            }
+
+            return View(posts.ToList());
         }
 
         public ActionResult About()
@@ -56,7 +65,6 @@ namespace Shauli_Blog.Controllers
         /*
          * Method which handles the Admin view
          */
-        //[Authorize(Roles = "Administrator")]
         public ActionResult Administration()
         {
             return View(db.Posts.ToList());
@@ -65,10 +73,7 @@ namespace Shauli_Blog.Controllers
 
         //
         // GET: /Blog/Edit
-        /*
-         * Method which handles the Admin view
-         */
-        //[Authorize(Roles = "Administrator")]
+        //
         public ActionResult Edit(int id=0)
         {
 
@@ -81,8 +86,23 @@ namespace Shauli_Blog.Controllers
         }
 
         //
+        // POST: /Blog/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(post).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Administration");
+            }
+            return View(post);
+        }
+
+        //
         // GET: /Blog/Details/5
-        //[Authorize(Roles = "Administrator")]
+        //
         public ActionResult Details(int id = 0)
         {
             Post post = db.Posts.Find(id);
@@ -95,7 +115,6 @@ namespace Shauli_Blog.Controllers
 
         //
         // GET: /Blog/Delete/5
-        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id = 0)
         {
             Post post = db.Posts.Find(id);
@@ -105,8 +124,19 @@ namespace Shauli_Blog.Controllers
             }
             return View(post);
         }
+
+        //
+        // POST: /Blog/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Post post = db.Posts.Find(id);
+            db.Posts.Remove(post);
+            db.SaveChanges();
+            return RedirectToAction("Administration");
+        }
         //TODO - FIX MANAGE COMMENT
-        //[Authorize(Roles = "Administrator")]
         public ActionResult ManageComments(int id = 0)
         {
             Post post = db.Posts.Find(id);
@@ -122,7 +152,6 @@ namespace Shauli_Blog.Controllers
         /*
         * Method which handles the comments deletion
         */
-        [Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("DeleteComment")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteComment(int id = 0)
@@ -138,14 +167,12 @@ namespace Shauli_Blog.Controllers
             return RedirectToAction("ManageComments", new { id = postId });
         }
 
-        //[Authorize(Roles = "Administrator")]
         public ActionResult AddNewPost()
         {
             return View();
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Administrator")]
         [ValidateAntiForgeryToken]
         public ActionResult AddNewPost(Post post)
         {
@@ -165,6 +192,8 @@ namespace Shauli_Blog.Controllers
 
             return View(post);
         }
+
+
 
     }
 }

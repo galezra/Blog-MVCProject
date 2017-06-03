@@ -4,6 +4,15 @@
 @using System.Globalization
 
 @model IEnumerable<Shauli_Blog.Models.Post>
+    
+<!--Search section-->
+@using (Html.BeginForm())
+{
+    <h10>Find by author:</h10> @Html.TextBox("SearchString")
+        <input type="submit" value="Search" class="btn-success" />
+
+}
+
 
 <!-- Audio section -->
 <audio autoplay>

@@ -23,29 +23,36 @@
             </article>
         </section>
 
-        <!-- Comments section -->
-        <section id="comments">
-            <h2>Comments</h2>
-            <!-- Display each comment in DB which related to this post -->
-            @foreach (var comment in post.Comments)
-            {
-                <article>
-                    <header>
-                        <a href="@comment.Url">@comment.Author</a>
-                    </header>
-                    <p> @comment.Content </p>
-                </article>
-            }
-        </section>
 
         <!-- Generate Post Comment form -->
         Comment newComment = new Comment();
         // Get current post's PostId and pass it to _PostComment partial view
         newComment.PostId = post.PostId;
-        @Html.Partial("_PostComment", newComment)
+        @Html.Partial("_PostComment", newComment)  
+
+        <!-- Comments section -->
+        <h2>Comments</h2>
+        <section id="comments">
+            <!-- Display each comment in DB which related to this post -->
+            @foreach (var comment in post.Comments)
+            {
+                <hr>
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">@comment.Title
+                            <small>Post by:<a href="@comment.Url">@comment.Author</a></small>
+                        </h4>
+                        @comment.Content
+                    </div>
+                </div>
+                    }
+        </section>
 
     }
+    
+
 
 </div>
-
-
