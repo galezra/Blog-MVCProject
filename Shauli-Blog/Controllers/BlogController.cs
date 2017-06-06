@@ -179,12 +179,12 @@ namespace Shauli_Blog.Controllers
             // Get current date and update post PublishDate property 
             DateTime currDate = DateTime.Now;
             post.PublishDate = currDate;
-
+            
             ModelState["PublishDate"].Errors.Clear(); // Required to make ModelState valid
-
             if (ModelState.IsValid)
             {
                 // Add new post to Post table in DB
+                                                
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Administration");

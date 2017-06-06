@@ -157,6 +157,10 @@
     <Compile Include="Migrations\201705311442397_ver1_InitialCreate.Designer.cs">
       <DependentUpon>201705311442397_ver1_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706061159235_migration1.cs" />
+    <Compile Include="Migrations\201706061159235_migration1.Designer.cs">
+      <DependentUpon>201706061159235_migration1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Fan.cs" />
@@ -203,6 +207,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Post\post_create.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
@@ -235,6 +240,7 @@
     <Content Include="Views\Blog\AddNewPost.cshtml" />
     <Content Include="Views\Blog\Create.cshtml" />
     <Content Include="Views\Blog\_Content.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,6 +263,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705311442397_ver1_InitialCreate.resx">
       <DependentUpon>201705311442397_ver1_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706061159235_migration1.resx">
+      <DependentUpon>201706061159235_migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
