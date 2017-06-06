@@ -8,8 +8,6 @@
 
             <!-- Getting the PostId from Index.cshtml-->
             @Html.HiddenFor(model => model.PostId)
-
-           
            
         <!-- Comments Form -->
 
@@ -18,23 +16,23 @@
             <comm>
                 <ul>
                     <li>
-                        @Html.LabelFor(model => model.Title)
-                        @Html.TextBoxFor(model => model.Title, new {id = "title", required = "required"})
+
+                        @Html.TextBoxFor(model => model.Title, new {id = "title", required = "required", @class = "form-control", placeholder = "Title" })
                     </li>
                     <li>
-                        @Html.LabelFor(model => model.Author, "Name")
-                        @Html.TextBoxFor(model => model.Author, new {id = "Author", required = "required"})
+
+                        @Html.TextBoxFor(model => model.Author, new {id = "Author", required = "required", @class = "form-control", placeholder = "Name" })
                     </li>
 
                     <li>
-                        @Html.LabelFor(model => model.Url, "Website")
-                        @Html.TextBoxFor(model => model.Url, new {id = "Url", type = "url"})
+
+                        @Html.TextBoxFor(model => model.Url, new {id = "Url", type = "url", @class = "form-control", placeholder = "Website" ,} )
                     </li>
                 </ul>
             </comm>
             <form role="form">
                 <div class="form-group">
-                    @Html.TextAreaFor(model => model.Content, new {id = "comment", required = "required", @Style = "height:150px; width:515px;"})
+                    @Html.TextAreaFor(model => model.Content, new {id = "comment", required = "required", @Style = "height:150px; width:515px;" , @class="form-control",placeholder="Write somthing.."})
                 </div>
                 <input type="submit" value="Post comment" class="btn btn-primary"/>
             </form>

@@ -193,6 +193,15 @@ namespace Shauli_Blog.Controllers
             return View(post);
         }
 
+        public bool CheckBoxVidImg()
+        {
+            
+
+
+
+            return true;
+        }
+
 
 
     }
